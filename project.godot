@@ -1,0 +1,33 @@
+; Engine configuration file.
+; The game is a portrait-oriented Arabic Telegram Mini App.
+
+config_version=5
+
+[application]
+
+boot_splash/show_image=false
+boot_splash/fullsize=true
+boot_splash/use_filter=true
+boot_splash/bg_color=Color(0.02745, 0.23, 0.24, 1)
+config/name="بركة الريش"
+config/description="لعبة عربية مستقلة لرعاية البط وجمع البيض ودمجه والتعاون مع الأصدقاء."
+config/version="1.0.0"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://assets/share/favicon.png"
+
+[display]
+
+window/size/viewport_width=480
+window/size/viewport_height=960
+window/size/window_width_override=480
+window/size/window_height_override=960
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[gui]
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

@@ -1,0 +1,13 @@
+{
+  "name": "featherpond-miniapp",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "export": "mkdir -p dist/standalone && godot --headless --audio-driver Dummy --path . --export-release Web dist/standalone/index.html",
+    "build": "npm run export",
+    "verify:game": "godot --headless --audio-driver Dummy --editor --path . --quit && godot --headless --audio-driver Dummy --path . --script test/pond_smoke.gd",
+    "verify:server": "npm --prefix server run check",
+    "verify": "npm run verify:game && npm run verify:server",
+    "check": "npm run verify"
+  }
+}

@@ -1,0 +1,47 @@
+.godot/
+dist/
+node_modules/
+.manus-logs/
+# --- injected at scaffold time (see gitignore.project in the template) ---
+/assets/**/*.png
+/assets/**/*.jpg
+/assets/**/*.jpeg
+/assets/**/*.webp
+/assets/**/*.gif
+/assets/**/*.bmp
+/assets/**/*.svg
+/assets/**/*.ico
+/assets/**/*.ogg
+/assets/**/*.wav
+/assets/**/*.mp3
+/assets/**/*.m4a
+/assets/**/*.mp4
+/assets/**/*.webm
+/assets/**/*.ttf
+/assets/**/*.otf
+/assets/**/*.woff
+/assets/**/*.woff2
+
+!site/**
+
+# Template fonts (subset WOFF2) restore from assets.lock.json like other media.
+
+# Self-hosted Telegram API secrets and persistent player data.
+.env
+**/.env
+data/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# First-party game media must travel with this self-hosted source project.
+!/assets/pond/runtime/pond_background.png
+!/assets/pond/runtime_final/*.png
+!/assets/share/favicon.png
+!/assets/fonts/NotoSansArabic-Regular.ttf
+
+# Ship the tested Web export because the self-hosted Dockerfile serves it.
+!/dist/
+/dist/*
+!/dist/standalone/
+!/dist/standalone/**

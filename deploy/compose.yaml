@@ -1,0 +1,33 @@
+services:
+  featherpond:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    image: featherpond-miniapp:1.0.0
+    container_name: featherpond
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3000
+      STATIC_DIR: /app/public
+      DATA_DIR: /app/data
+      BOT_TOKEN: ${BOT_TOKEN:?Set BOT_TOKEN in deploy/.env}
+      WEB_ORIGINS: ${WEB_ORIGINS:?Set WEB_ORIGINS in deploy/.env}
+      BOT_USERNAME: ${BOT_USERNAME:-}
+      MINI_APP_SHORT_NAME: ${MINI_APP_SHORT_NAME:-}
+      TRUST_PROXY: ${TRUST_PROXY:-false}
+    ports:
+      - "127.0.0.1:${HOST_PORT:-3000}:3000"
+    volumes:
+      - featherpond_data:/app/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 4s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  featherpond_data:

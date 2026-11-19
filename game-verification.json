@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "checks": [
+    {
+      "kind": "script",
+      "path": "res://test/pond_smoke.gd",
+      "expect": "[pond-smoke] PASS:",
+      "profile": "source"
+    },
+    {
+      "kind": "script",
+      "path": "res://tools/verify_exported_pack.gd",
+      "expect": "[pond-pack] PASS:",
+      "profile": "pack"
+    }
+  ]
+}
